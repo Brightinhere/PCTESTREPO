@@ -1,25 +1,19 @@
-import java.util.concurrent.atomic.AtomicInteger;
-
 /**
  * Voorbeeld programma waarom synchronized nodig is bij concurrent write door andere thread
  * Oplossing 1 : gebruik een volatile variabele en busy wait (leuke oefening voor in de klas)
  * Oplossing 2 : gebruik synchronized keyword in declaratie van increment methode
- * Oplossing 3 : gebruik AtomicInteger class voor de count
  *
  * @author henk
  */
-public class Atomic {
+public class Atomic_busy_sync {
 
     private static int count = 0;
-    // private static AtomicInteger count = new AtomicInteger(0);
+    private static volatile int turn = 1;
 
-    // private static volatile int turn = 1;
-
-    private static /* synchronized */ void increment(int id) {
-        // while (turn != id) ;
-            count++;
-            // count.incrementAndGet();
-        // turn = 3 - id;
+    private static void increment(int id) {
+        while (turn != id) ;
+        count++;
+        turn = 3 - id;
     }
 
     static class Counter extends Thread {
