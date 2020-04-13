@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/Atomic/Atomic.iml" filepath="$PROJECT_DIR$/Atomic/Atomic.iml" />
       <module fileurl="file://$PROJECT_DIR$/Barrier/Barrier.iml" filepath="$PROJECT_DIR$/Barrier/Barrier.iml" />
       <module fileurl="file://$PROJECT_DIR$/Dining/Dining.iml" filepath="$PROJECT_DIR$/Dining/Dining.iml" />
+      <module fileurl="file://$PROJECT_DIR$/L1_BigDecimal_Threads/L1_BigDecimal_Threads.iml" filepath="$PROJECT_DIR$/L1_BigDecimal_Threads/L1_BigDecimal_Threads.iml" />
       <module fileurl="file://$PROJECT_DIR$/Parallel/Parallel.iml" filepath="$PROJECT_DIR$/Parallel/Parallel.iml" />
       <module fileurl="file://$PROJECT_DIR$/Parmin/Parmin.iml" filepath="$PROJECT_DIR$/Parmin/Parmin.iml" />
       <module fileurl="file://$PROJECT_DIR$/Phaser/Phaser.iml" filepath="$PROJECT_DIR$/Phaser/Phaser.iml" />
