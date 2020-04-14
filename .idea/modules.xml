@@ -2,27 +2,22 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Week1/Amdahl/Amdahl.iml" filepath="$PROJECT_DIR$/Week1/Amdahl/Amdahl.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Week2/Atomic/Atomic.iml" filepath="$PROJECT_DIR$/Week2/Atomic/Atomic.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Week3/Barrier/Barrier.iml" filepath="$PROJECT_DIR$/Week3/Barrier/Barrier.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Week2/Dining/Dining.iml" filepath="$PROJECT_DIR$/Week2/Dining/Dining.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Week1/Parallel/Parallel.iml" filepath="$PROJECT_DIR$/Week1/Parallel/Parallel.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Week3/Parmin/Parmin.iml" filepath="$PROJECT_DIR$/Week3/Parmin/Parmin.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Week3/Phaser/Phaser.iml" filepath="$PROJECT_DIR$/Week3/Phaser/Phaser.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Week4/ProCon/ProCon.iml" filepath="$PROJECT_DIR$/Week4/ProCon/ProCon.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Week2/ReaWri/ReaWri.iml" filepath="$PROJECT_DIR$/Week2/ReaWri/ReaWri.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Week4/Recmin/Recmin.iml" filepath="$PROJECT_DIR$/Week4/Recmin/Recmin.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Week5/Remote/Remote.iml" filepath="$PROJECT_DIR$/Week5/Remote/Remote.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Week5/Service/Service.iml" filepath="$PROJECT_DIR$/Week5/Service/Service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Week1/Spooler/Spooler.iml" filepath="$PROJECT_DIR$/Week1/Spooler/Spooler.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Week3/Stencil/Stencil.iml" filepath="$PROJECT_DIR$/Week3/Stencil/Stencil.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Week4/Stream/Stream.iml" filepath="$PROJECT_DIR$/Week4/Stream/Stream.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Week2/Volatile/Volatile.iml" filepath="$PROJECT_DIR$/Week2/Volatile/Volatile.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Week1/Week1.iml" filepath="$PROJECT_DIR$/Week1/Week1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Week2/Week2.iml" filepath="$PROJECT_DIR$/Week2/Week2.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Week3/Week3.iml" filepath="$PROJECT_DIR$/Week3/Week3.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Week4/Week4.iml" filepath="$PROJECT_DIR$/Week4/Week4.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Week5/Week5.iml" filepath="$PROJECT_DIR$/Week5/Week5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Amdahl/Amdahl.iml" filepath="$PROJECT_DIR$/Amdahl/Amdahl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Atomic/Atomic.iml" filepath="$PROJECT_DIR$/Atomic/Atomic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Barrier/Barrier.iml" filepath="$PROJECT_DIR$/Barrier/Barrier.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Dining/Dining.iml" filepath="$PROJECT_DIR$/Dining/Dining.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Parallel/Parallel.iml" filepath="$PROJECT_DIR$/Parallel/Parallel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Parmin/Parmin.iml" filepath="$PROJECT_DIR$/Parmin/Parmin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Phaser/Phaser.iml" filepath="$PROJECT_DIR$/Phaser/Phaser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProCon/ProCon.iml" filepath="$PROJECT_DIR$/ProCon/ProCon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ReaWri/ReaWri.iml" filepath="$PROJECT_DIR$/ReaWri/ReaWri.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Recmin/Recmin.iml" filepath="$PROJECT_DIR$/Recmin/Recmin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Remote/Remote.iml" filepath="$PROJECT_DIR$/Remote/Remote.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Service/Service.iml" filepath="$PROJECT_DIR$/Service/Service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Spooler/Spooler.iml" filepath="$PROJECT_DIR$/Spooler/Spooler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Stencil/Stencil.iml" filepath="$PROJECT_DIR$/Stencil/Stencil.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Stream/Stream.iml" filepath="$PROJECT_DIR$/Stream/Stream.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Volatile/Volatile.iml" filepath="$PROJECT_DIR$/Volatile/Volatile.iml" />
     </modules>
   </component>
 </project>
