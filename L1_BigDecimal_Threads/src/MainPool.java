@@ -1,8 +1,8 @@
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class MainPool {
-    private static final int N_CPU = 4;
-    private static final int N_ROOTS = 25;
+    private static final int N_CPU = 16;
+    private static final int N_ROOTS = 1000;
 
     public static void main(String[] args) throws InterruptedException {
         AtomicInteger nextId = new AtomicInteger();
