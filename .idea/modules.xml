@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/Week2/Atomic/Atomic.iml" filepath="$PROJECT_DIR$/Week2/Atomic/Atomic.iml" />
       <module fileurl="file://$PROJECT_DIR$/Week3/Barrier/Barrier.iml" filepath="$PROJECT_DIR$/Week3/Barrier/Barrier.iml" />
       <module fileurl="file://$PROJECT_DIR$/Week1/BigDecimal_Threads/BigDecimal_Threads.iml" filepath="$PROJECT_DIR$/Week1/BigDecimal_Threads/BigDecimal_Threads.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Week2/Buffer/Buffer.iml" filepath="$PROJECT_DIR$/Week2/Buffer/Buffer.iml" />
       <module fileurl="file://$PROJECT_DIR$/Week2/Dining/Dining.iml" filepath="$PROJECT_DIR$/Week2/Dining/Dining.iml" />
       <module fileurl="file://$PROJECT_DIR$/Week1/Parallel/Parallel.iml" filepath="$PROJECT_DIR$/Week1/Parallel/Parallel.iml" />
       <module fileurl="file://$PROJECT_DIR$/Week3/Parmin/Parmin.iml" filepath="$PROJECT_DIR$/Week3/Parmin/Parmin.iml" />
