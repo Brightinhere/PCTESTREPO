@@ -1,8 +1,8 @@
 import java.util.Random;
 
 public class BoundedBufferMain {
-    static final int MAX_ITEMS = 100000;
-    static final int BUFFER_SIZE = 10000;
+    static final int MAX_ITEMS = 1000000;
+    static final int BUFFER_SIZE = 10;
     static BoundedBuffer<Double> buffer = new BoundedBuffer(BUFFER_SIZE);
 
     static Random randomizer = new Random();

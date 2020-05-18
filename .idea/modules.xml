@@ -6,8 +6,11 @@
       <module fileurl="file://$PROJECT_DIR$/Week2/Atomic/Atomic.iml" filepath="$PROJECT_DIR$/Week2/Atomic/Atomic.iml" />
       <module fileurl="file://$PROJECT_DIR$/Week3/Barrier/Barrier.iml" filepath="$PROJECT_DIR$/Week3/Barrier/Barrier.iml" />
       <module fileurl="file://$PROJECT_DIR$/Week1/BigDecimal_Threads/BigDecimal_Threads.iml" filepath="$PROJECT_DIR$/Week1/BigDecimal_Threads/BigDecimal_Threads.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Week4/ConcurrentMap/ConcurrentMap.iml" filepath="$PROJECT_DIR$/Week4/ConcurrentMap/ConcurrentMap.iml" />
       <module fileurl="file://$PROJECT_DIR$/Week2/Dining/Dining.iml" filepath="$PROJECT_DIR$/Week2/Dining/Dining.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Week4/ForkJoin_vs_Executor/ForkJoin_vs_Executor.iml" filepath="$PROJECT_DIR$/Week4/ForkJoin_vs_Executor/ForkJoin_vs_Executor.iml" />
       <module fileurl="file://$PROJECT_DIR$/Week1/Parallel/Parallel.iml" filepath="$PROJECT_DIR$/Week1/Parallel/Parallel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Week3/ParallelFileReader/ParallelFileReader.iml" filepath="$PROJECT_DIR$/Week3/ParallelFileReader/ParallelFileReader.iml" />
       <module fileurl="file://$PROJECT_DIR$/Week3/Parmin/Parmin.iml" filepath="$PROJECT_DIR$/Week3/Parmin/Parmin.iml" />
       <module fileurl="file://$PROJECT_DIR$/Week3/Phaser/Phaser.iml" filepath="$PROJECT_DIR$/Week3/Phaser/Phaser.iml" />
       <module fileurl="file://$PROJECT_DIR$/Week4/ProCon/ProCon.iml" filepath="$PROJECT_DIR$/Week4/ProCon/ProCon.iml" />

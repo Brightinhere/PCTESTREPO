@@ -25,6 +25,17 @@
     <option name="priority" value="Medium" />
     <option name="excludeFilter" value="" />
   </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/Week3/ParallelFileReader/pom.xml" />
+        <option value="$PROJECT_DIR$/Week4/pom.xml" />
+        <option value="$PROJECT_DIR$/Week4/ForkJoin/pom.xml" />
+        <option value="$PROJECT_DIR$/Week4/ConcurrentMap/pom.xml" />
+        <option value="$PROJECT_DIR$/Week4/ForkJoin_vs_Executor/pom.xml" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
