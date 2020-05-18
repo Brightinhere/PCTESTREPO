@@ -8,7 +8,6 @@
         <outputRelativeToContentRoot value="true" />
         <module name="ForkJoin_vs_Executor" />
         <module name="ConcurrentMap" />
-        <module name="ParallelFileReader" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

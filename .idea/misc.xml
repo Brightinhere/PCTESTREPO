@@ -28,7 +28,6 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/Week3/ParallelFileReader/pom.xml" />
         <option value="$PROJECT_DIR$/Week4/pom.xml" />
         <option value="$PROJECT_DIR$/Week4/ForkJoin/pom.xml" />
         <option value="$PROJECT_DIR$/Week4/ConcurrentMap/pom.xml" />
