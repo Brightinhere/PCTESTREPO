@@ -147,7 +147,42 @@ public class Vector {
                                    UnaryOperator<Double> mapper) {
         double sum = 0.0;
         for (int i = from; i < to; i++) {
-                sum += mapper.apply(this.data[i]);
+            sum += mapper.apply(this.data[i]);
+        }
+        return sum;
+    }
+
+    public double executorSum1(int nThreads, int maxTasks) {
+        // create a thread pool and the service to gather the result from each task
+        ExecutorService executor = Executors.newFixedThreadPool(nThreads);
+        CompletionService<Double> executorTaskQueue = new ExecutorCompletionService<>(executor);
+
+        final int splitSize = this.data.length / maxTasks;
+        // spawn the concurrent tasks, one for each segment in the array
+        for (int t = 0; t < maxTasks; t++) {
+            final int finalT = t;
+            // java lambda expressions only accept finals in their closure...
+            executorTaskQueue.submit(
+                    () -> executorSumTask(finalT*splitSize, (finalT+1)*splitSize)
+            );
+        }
+
+        double sum = 0.0;
+        try {
+            // gather the results and accumulate them
+            for (int t = 0; t < maxTasks; t++) {
+                sum += executorTaskQueue.take().get();
+            }
+        } catch (Exception ignored) {}
+
+        executor.shutdown();
+        return sum;
+    }
+
+    private double executorSumTask(int from, int to) {
+        double sum = 0.0;
+        for (int i = from; i < to; i++) {
+            sum += this.data[i];
         }
         return sum;
     }
