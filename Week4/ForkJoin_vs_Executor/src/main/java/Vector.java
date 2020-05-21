@@ -10,7 +10,7 @@ public class Vector {
 
     private double[] data;
     private ForkJoinPool forkJoinPool;
-    private ExecutorService executorPool;
+
 
     public Vector(int size) {
         this.data = new double[size];
@@ -116,28 +116,30 @@ public class Vector {
         return this.executorSum(nThreads, maxTasks, this::mapper);
     }
 
-    public double executorSum(int nThreads, int maxTasks,
-                              UnaryOperator<Double> mapper) {
-        this.executorPool = Executors.newFixedThreadPool(nThreads);
-        final int splitSize = this.data.length / maxTasks;
+    public double executorSum(int nThreads, int maxTasks, UnaryOperator<Double> mapper) {
+        // create a threadpool, and the service to gather the result from each task
+        ExecutorService executor = Executors.newFixedThreadPool(nThreads);
+        CompletionService<Double> executorTaskQueue = new ExecutorCompletionService<>(executor);
 
-        Future<Double>[] subSums = new Future[maxTasks-1];
-        for (int t = 0; t < maxTasks-1; t++) {
+        final int splitSize = this.data.length / maxTasks;
+        // spawn the concurrent tasks, one for each segment in the array
+        for (int t = 0; t < maxTasks; t++) {
             final int finalT = t;
-            subSums[t] = this.executorPool.submit(
-                    () -> executorSumTask(finalT * splitSize,
-                            (finalT+1) * splitSize, mapper)
+            // java lambda expressions only accept finals in their closure...
+            executorTaskQueue.submit(
+                    () -> executorSumTask(finalT*splitSize, (finalT+1)*splitSize, mapper)
             );
         }
 
-        double sum = executorSumTask((maxTasks-1)*splitSize,this.data.length, mapper);
+        double sum = 0.0;
         try {
-            for (int t = 0; t < maxTasks-1; t++) {
-                sum += subSums[t].get();
+            // gather the results and accumulate them
+            for (int t = 0; t < maxTasks; t++) {
+                sum += executorTaskQueue.take().get();
             }
         } catch (Exception ignored) {}
 
-        this.executorPool.shutdown();
+        executor.shutdown();
         return sum;
     }
 
