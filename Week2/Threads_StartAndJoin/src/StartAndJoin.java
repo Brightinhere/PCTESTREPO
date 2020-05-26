@@ -22,4 +22,28 @@ public class StartAndJoin {
             count++;
         }
     }
+
+    private static void timerExample1() {
+
+        // start the nanosecond timer
+        long startTime = System.nanoTime();
+
+        // TODO execute worker code
+
+        // measure elapsed time in milliseconds
+        double elapsedTime = (System.nanoTime() - startTime) / 1E6;
+
+    }
+
+    private static void timerExample2() {
+
+        // start the millisecond timer
+        long startTime = System.currentTimeMillis();
+
+        // TODO execute worker code
+
+        // measure elapsed time in milliseconds
+        long elapsedTime = System.currentTimeMillis() - startTime;
+
+    }
 }

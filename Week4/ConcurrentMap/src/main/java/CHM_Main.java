@@ -139,8 +139,7 @@ public class CHM_Main {
                 index.reduceValues(NTASKS, Integer::sum));
 
         start = System.nanoTime();
-        ConcurrentMap<Character,Integer> index2;
-        index2 =
+        ConcurrentMap<Character,Integer> index2 =
                 streamEngine.submit(() -> {
                     return
                         wordMap
@@ -165,5 +164,18 @@ public class CHM_Main {
                                 .sum();
                 }).get()
         );
+
+        ConcurrentMap<Character,Integer> characterIndex =
+                wordMap
+                    .entrySet()
+                    .parallelStream()
+                    .collect(
+                        Collectors.toConcurrentMap(
+                            e -> e.getKey().charAt(0),
+                            Map.Entry::getValue,
+                            Integer::sum)
+                    );
+
+        System.out.println(characterIndex);
     }
 }
