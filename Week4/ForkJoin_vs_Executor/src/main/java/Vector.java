@@ -111,6 +111,31 @@ public class Vector {
         return sum;
     }
 
+    public double parallelSum(List<Double> values, int nTasks) {
+        return parallelSum(values, nTasks, 0, values.size());
+    }
+
+    public double parallelSum16(List<Double> values) {
+        return parallelSum(values, 16, 0, values.size());
+    }
+    public double parallelSum(List<Double> values, int nTasks, int from, int to) {
+
+        if (nTasks > 1) {
+            int mid = (from + to) / nTasks;
+            ForkJoinTask<Double> subSum1 =
+                    this.forkJoinPool.submit( () -> parallelSum(values, nTasks / 2, from, mid) );
+            ForkJoinTask<Double> subSum2 =
+                    this.forkJoinPool.submit( () -> parallelSum(values, nTasks / 2, mid, to) );
+            return subSum1.join() + subSum2.join();
+        } else {
+            double sum = values.get(from);
+            for (int i = from+1; i < to; i++) {
+                sum += values.get(i);
+            }
+            return sum;
+        }
+    }
+
 
     public double executorSum(int nThreads, int maxTasks) {
         return this.executorSum(nThreads, maxTasks, this::mapper);

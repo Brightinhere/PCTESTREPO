@@ -86,6 +86,7 @@ public class MasterWorkerMain  {
                 masterService.getCalculatedSum()/1000000);
 
         UnicastRemoteObject.unexportObject(masterService, true);
+        // registry.unbind("//" + serviceHost + SERVICE_NAME);
     }
 
     private static void workerMain(int workerId, String registerHost) throws RemoteException, NotBoundException {

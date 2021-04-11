@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>nl.hva.parcom</groupId>
-    <artifactId>ForkJoin_vs_Executor</artifactId>
+    <artifactId>Remote</artifactId>
     <version>20.4</version>
 
     <properties>
@@ -28,4 +28,5 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
 </project>

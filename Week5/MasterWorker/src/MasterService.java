@@ -25,7 +25,8 @@ public class MasterService extends UnicastRemoteObject implements MasterServiceI
             System.out.printf("Gave task-%d with %d numbers to worker-%d\n", this.nTasksToGive, nNumbers, workerId);
             this.nNumbersToDo -= nNumbers;
             this.nTasksToGive--;
-            return (Supplier<Double> & Serializable)(()->{ return calculateSumOfRandomNumbers(nNumbers); });
+            return (Supplier<Double> & Serializable)
+                    ()->{ return calculateSumOfRandomNumbers(nNumbers); };
         }
         return null;
     }
