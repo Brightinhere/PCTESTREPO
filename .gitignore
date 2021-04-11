@@ -1,1 +1,15 @@
-*.class
+**/.DS_Store/
+**/__MACOSX/
+
+**/.idea/
+**/.vscode/
+**/target/
+**/out/
+
+**/*.iml
+**/*.ipr
+**/*.iws
+**/*.log
+**/*.zip
+**/*.lock
+**/*.code-workspace
