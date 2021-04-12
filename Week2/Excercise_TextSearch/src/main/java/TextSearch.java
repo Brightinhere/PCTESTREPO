@@ -126,6 +126,13 @@ public class TextSearch {
         return -1;
     }
 
+    /**
+     * Initialize part of the list with random words
+     * @param wordLength
+     * @param words
+     * @param from
+     * @param to
+     */
     private static void sequentialInitialize(int wordLength, List<String> words, int from, int to) {
         for (int i = from; i < to; i++) {
             words.set(i, randomizer.nextWord(wordLength));
@@ -142,7 +149,7 @@ public class TextSearch {
         for (int t = 0; t < nTasks; t++) {
             final int taskNr = t;
             tasks[taskNr] = new Thread( () -> {
-                // TODO initialize part of the list for the target string
+                // TODO initialize part of the list with random words
             });
 
             // TODO start the task
