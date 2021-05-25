@@ -25,22 +25,29 @@ public class TextSearch {
 
     // TODO handle the exception
     private static int parallelSearchAny(String target, List<String> words, int nTasks) throws InterruptedException {
+        //final int N_SUBTASKS_PER_TASK = 1;
+        final int N_SUBTASKS_PER_TASK = 20;
+
         Thread[] tasks = new Thread[nTasks];
         // TODO think of a proper data type to capture any found index of the target word
         //int foundIndex = -1;
+        // multiple threads will update the foundIndex as and when they find a match
         AtomicInteger foundIndex = new AtomicInteger(-1);
 
         // Create and start all threads searching part of the list
-        final int nTasks2 = nTasks * nTasks;
+        final int nSubTasks = nTasks * N_SUBTASKS_PER_TASK;
         for (int t = 0; t < nTasks; t++) {
-            final long taskNrBase = t * nTasks;
+            final long baseSubTaskNr = t * N_SUBTASKS_PER_TASK;
             tasks[t] = new Thread( () -> {
                 // TODO search part of the list for the target string
+                // split the sublist for each task in even smaller chunks,
+                // such that every task can bail-out as soon as one task has found a match.
+                // expected search time ~ (N/P) / 2
                 int latestFoundIndex = foundIndex.get();
-                for (int stNr = 0; stNr < nTasks && latestFoundIndex < 0; stNr++) {
+                for (int stNr = 0; stNr < N_SUBTASKS_PER_TASK && latestFoundIndex < 0; stNr++) {
                     int stFoundIndex = sequentialSearchAny(target, words,
-                            (int)((taskNrBase+stNr) * words.size() / nTasks2),
-                            (int)((taskNrBase+stNr+1) * words.size() / nTasks2)
+                            (int)((baseSubTaskNr+stNr) * words.size() / nSubTasks),
+                            (int)((baseSubTaskNr+stNr+1) * words.size() / nSubTasks)
                     );
                     // TODO remember the index, if found
                     latestFoundIndex = foundIndex.accumulateAndGet(stFoundIndex, Integer::max);
@@ -95,7 +102,7 @@ public class TextSearch {
         System.out.printf("Initialization took %d msecs\n", elapsedTime);
 
         // pick at random a word to be searched
-        String wordToBeSearched = words.get(randomizer.nextInt(numWords));
+        String wordToBeSearched = words.get(numWords/4 + randomizer.nextInt(numWords/2));
         System.out.printf("Sequential search for '%s'\n", wordToBeSearched);
 
         startTime = System.currentTimeMillis();
@@ -140,7 +147,8 @@ public class TextSearch {
     }
 
     private static void sequentialInitialize(int wordLength, List<String> words, int from, int to) {
-        // reduce synchronization by global randomizer
+        // Using a shared randomizer in parallel threads imposes internal synchronization of that randomizer
+        // Randomizer localRandomizer = randomizer;
         Randomizer localRandomizer = new Randomizer(randomizer.nextLong());
         for (int i = from; i < to; i++) {
             words.set(i, localRandomizer.nextWord(wordLength));
@@ -154,9 +162,12 @@ public class TextSearch {
 
         // Create and start all threads searching part of the list
         for (int t = 0; t < nTasks; t++) {
+            // define final taskNr to cope with closure restrictions of below lambda function
+            // define long taskNr to prevent integer overflow when calculating segment boundaries.
             final long taskNr = t;
             tasks[t] = new Thread( () -> {
-                // TODO initialize part of the list for the target string
+                // TODO initialize part of the list
+
                 sequentialInitialize(wordLength, words,
                         (int)(taskNr * words.size() / nTasks), (int)((taskNr+1) * words.size() / nTasks)
                 );
