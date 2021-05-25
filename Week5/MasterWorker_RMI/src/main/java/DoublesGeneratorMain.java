@@ -132,7 +132,7 @@ public class DoublesGeneratorMain {
 
             // restart the current main with child worker command line arguments
             ProcessBuilder child = new ProcessBuilder(
-                    javaBin, "-classpath", classPath, DoublesGeneratorMain.class.getSimpleName(),
+                    javaBin, "-classpath", classPath, DoublesGeneratorMain.class.getCanonicalName(),
                     "--verbosityLevel", String.valueOf(Timer.verbosityLevel),
                     "--serviceHost", serviceHost,
                     "--workerId", String.valueOf(childId)

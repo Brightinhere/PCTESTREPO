@@ -112,7 +112,7 @@ public class GenericTaskMaster<R> extends UnicastRemoteObject implements MasterS
 
             // restart the current main with child worker command line arguments
             ProcessBuilder child = new ProcessBuilder(
-                    javaBin, "-classpath", classPath, mainClass.getSimpleName(),
+                    javaBin, "-classpath", classPath, mainClass.getCanonicalName(),
                     "--verbosityLevel", String.valueOf(Timer.verbosityLevel),
                     "--serviceHost", serviceHost,
                     "--workerId", String.valueOf(childId)
