@@ -121,7 +121,7 @@ public class Vector {
     public double parallelSum(List<Double> values, int nTasks, int from, int to) {
 
         if (nTasks > 1) {
-            int mid = (from + to) / nTasks;
+            int mid = (from + to) / 2;
             ForkJoinTask<Double> subSum1 =
                     this.forkJoinPool.submit( () -> parallelSum(values, nTasks / 2, from, mid) );
             ForkJoinTask<Double> subSum2 =
