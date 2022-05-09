@@ -8,16 +8,20 @@ import java.util.Scanner;
  *      and then applies a linear search algorithm to find one of its words.
  *      complete the parallelSearchAny method that tries to apply multi-threading to find the word quicker
  *  Follow below steps:
- *   1. run the program to test the sequential solution with 0 parallel tasks
- *      choose number of words > 1,000,000 and such that sequential solution searches more than 100 msecs
- *      choose wordLength > 5 to start with in order to avoid chance to hit a duplicate
- *      choose seed>0 for the randomizer in order to reproduce specific initialisation
- *   2. implement and test the parallel search e.g. up to 64 tasks
- *   3. check/refine your parallel algorithm until it beats the sequential version in elapsed time
- *   4. test your algorithm with wordLength=3 and verify that different task numbers find different solutions
- *   5. implement and test a parallel initialization
- *   6. improve the parallel initialization until it beats the sequential initialization
- *      where does your overhead come from?
+ *  <ol>
+ *    <li>run the program to test the sequential solution with 0 parallel tasks<br>
+ *    choose number of words > 1,000,000 and such that sequential solution searches more than 100 msecs<br>
+ *    choose wordLength > 5 to start with in order to avoid chance to hit a duplicate<br>
+ *    choose seed>0 for the randomizer in order to reproduce specific initialisation
+ *    </li>
+ *    <li>implement and test the parallel search e.g. up to 64 tasks</li>
+ *    <li>check/refine your parallel algorithm until it beats the sequential version in elapsed time</li>
+ *    <li>test your algorithm with wordLength=3 and verify that different task numbers find different solutions</li>
+ *    <li>implement and test a parallel initialization</li>
+ *    <li>improve the parallel initialization until it beats the sequential initialization
+ *    where does your overhead come from?
+ *    </li>
+ *  </ol>
  */
 
 public class TextSearch {
