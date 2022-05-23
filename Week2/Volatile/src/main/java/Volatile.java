@@ -4,7 +4,7 @@
  */
 public class Volatile {
 
-    private static /* volatile */ boolean stop = false;
+    private static volatile boolean stop = false;
 
     private static class Runner implements Runnable {
 

@@ -15,7 +15,7 @@ import java.util.function.Supplier;
 
 public class DoublesGeneratorMain {
 
-    private static final int SERVICE_PORT = 49991;
+    private static final int SERVICE_PORT = 49991;    // + new Random().nextInt(100)
     private static final String SERVICE_NAME = "/doubleTasksToDo";
 
     public static void main(String[] args) throws InterruptedException, IOException, NotBoundException {

@@ -6,7 +6,7 @@ import java.util.concurrent.*;
  *
  * @author henk
  */
-public class Stream {
+public class StreamMain {
 
     private static final int SEED = 0;
     private static final int MIN = 2, MAX = 5;

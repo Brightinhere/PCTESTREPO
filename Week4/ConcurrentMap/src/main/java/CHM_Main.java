@@ -12,14 +12,14 @@ import java.util.stream.Collectors;
 public class CHM_Main {
 
     static ForkJoinPool streamEngine = ForkJoinPool.commonPool();
-    //static ForkJoinPool streamEngine = new ForkJoinPool(8);
+    //static ForkJoinPool streamEngine = new ForkJoinPool(2);
 
     // dummy synchronised list, used to drive the parallelStream for setup
     private static final int NTASKS = 64;
     private static List<Integer> dummyList =
             Collections.synchronizedList(new ArrayList<>());
 
-    private static final int NWORDS = 25600000;
+    private static final int NWORDS = 25000000;
     // word dictionary counts words
     private static ConcurrentMap<String, Integer> wordMap =
             new ConcurrentHashMap<>(64, (float) 0.9, NTASKS);
@@ -69,9 +69,17 @@ public class CHM_Main {
             System.out.print(" " + i);
         });
         System.out.println();
+        streamEngine.submit(() -> {
+            dummyList.parallelStream().forEach((i) -> {
+                System.out.print(" " + i);
+            });
+        }).join();
+
 
         long start;
         System.out.println("NWORDS = " + NWORDS);
+        System.out.println();
+
         wordMap.clear();
         start = System.nanoTime();
         dummyList.stream().forEach((i) -> {
@@ -103,6 +111,8 @@ public class CHM_Main {
             localMap.forEach((k, v) -> synchronizedWordMap.merge(k, v, Integer::sum));
         });
         System.out.println("Batch Synchronized setup: " + ((System.nanoTime() - start) / 1E9) + " sec.");
+
+        System.out.println();
 
         index.clear();
         start = System.nanoTime();
