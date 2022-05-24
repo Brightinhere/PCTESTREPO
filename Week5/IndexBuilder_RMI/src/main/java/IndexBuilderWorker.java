@@ -5,29 +5,31 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
-import java.rmi.server.UnicastRemoteObject;
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.function.Supplier;
 
 public class IndexBuilderWorker {
 
     private static final int MIN = 2, MAX = 5;
+    // local data structures to build the words index
     private static ArrayList<String> words = new ArrayList<>();
     private static Map<Character, Integer> index;
 
 
     public static void main(String[] args) throws InterruptedException, IOException, NotBoundException {
-        String serviceHost = "localhost";
+        String registerHost = "localhost";
+        String masterServiceName = "unspecified";
         int workerId = 0;
         int numWords = 0;
         long randomSeed = 0;
 
-        // process command line arguments, decide to assume master role or worker role
+        // process command line arguments
         for (int i = 0; i < args.length; i++) {
-            if (args[i].equals("--serviceHost")) {
+            if (args[i].equals("--registerHost")) {
                 i++;
-                serviceHost = args[i];
+                registerHost = args[i];
+            } else if (args[i].equals("--masterServiceName")) {
+                i++;
+                masterServiceName = args[i];
             } else if (args[i].equals("--verbosityLevel")) {
                 i++;
                 Timer.verbosityLevel = Integer.valueOf(args[i]);
@@ -41,23 +43,26 @@ public class IndexBuilderWorker {
             } else if (args[i].equals("--seed")) {
                 i++;
                 randomSeed = Long.valueOf(args[i]);
+            } else {
+                Timer.echo(2,"Skipped unknown argument %s", args[i]);
+                i++;
             }
         }
 
-        Registry registry = LocateRegistry.getRegistry(serviceHost, IndexBuilderMain.SERVICE_PORT);
-        IndexBuilderMaster indexBuilderMaster =
-                (IndexBuilderMaster)registry.lookup("//" + serviceHost + IndexBuilderMain.SERVICE_NAME);
+        Registry registry = LocateRegistry.getRegistry(registerHost, IndexBuilderMain.REGISTRY_SERVICE_PORT);
+        IndexBuilderInterface indexBuilderMaster =
+                (IndexBuilderInterface)registry.lookup("//" + masterServiceName);
 
         // run the worker task and communicate the result with the master
         workerMain(workerId, numWords, randomSeed, indexBuilderMaster);
 
     }
 
-    private static void workerMain(int workerId, int numWords, long randomSeed, IndexBuilderMaster master) throws RemoteException, NotBoundException {
-        Timer.start(2, "Worker-%d is up and running\n", workerId);
+    private static void workerMain(int workerId, int numWords, long randomSeed, IndexBuilderInterface master) throws RemoteException, NotBoundException {
+        Timer.start(2, "Worker-%d is up and running.\n", workerId);
 
-        Random random = new Random(randomSeed);
-        long start = System.nanoTime();
+        Random random = new Random(randomSeed+workerId);
+        Timer.start();
         int length = MIN + random.nextInt(MAX - MIN + 1);
         for (int i = 0; i < numWords; i++) {
             StringBuilder word = new StringBuilder();
@@ -66,7 +71,7 @@ public class IndexBuilderWorker {
             }
             words.add(word.toString());
         }
-        Timer.measure(2, "Worker-%d has completed initialisation\n", workerId);
+        Timer.measure(2, "Worker-%d has completed initialisation of %d words\n", workerId, numWords);
 
         index = new HashMap<>();
         words.forEach((word) -> index.merge(word.charAt(0), 1, Integer::sum));
