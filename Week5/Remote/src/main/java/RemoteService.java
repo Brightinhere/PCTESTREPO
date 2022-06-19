@@ -17,6 +17,7 @@ public class RemoteService extends UnicastRemoteObject implements RemoteInterfac
     }
 
     public static void main(String[] args) throws RemoteException {
+        System.out.println("We up and running fool");
         Registry registry = LocateRegistry.createRegistry(PORT);
         registry.rebind("//localhost/MyService", new RemoteService());
     }
