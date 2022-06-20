@@ -17,9 +17,10 @@ public class RemoteService extends UnicastRemoteObject implements RemoteInterfac
     }
 
     public static void main(String[] args) throws RemoteException {
+        String host = "192.168.2.13";
         System.out.println("We up and running fool");
         Registry registry = LocateRegistry.createRegistry(PORT);
-        registry.rebind("//localhost/MyService", new RemoteService());
+        registry.rebind("//" + host + "/MyService", new RemoteService());
     }
 
 }
